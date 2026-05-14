@@ -8,7 +8,7 @@ dbt_poc:
       # password: "{{ env_var('REDSHIFT_PASSWORD') }}"
       host : dbt-poc.ck74sbgav22w.eu-central-1.redshift.amazonaws.com
       user : akym-dev
-      password : 97C_rikNxd9Xg5!
+      password : xxx
       port: 5439
       dbname: dev
       schema: "dbt_analytics"  # The schema where dbt will build your table
