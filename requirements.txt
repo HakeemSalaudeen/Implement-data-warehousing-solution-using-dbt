@@ -1,4 +1,6 @@
-dbt-redshift==1.10.1
+# dbt-redshift==1.10.1
+
+dbt-snowflake
 
 
 

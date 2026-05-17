@@ -1,15 +1,31 @@
+# dbt_poc:
+#   target: dev
+#   outputs:
+#     dev:
+#       type: redshift
+#       # host: "{{ env_var('REDSHIFT_HOST') }}"
+#       # user: "{{ env_var('REDSHIFT_USER') }}"
+#       # password: "{{ env_var('REDSHIFT_PASSWORD') }}"
+#       host : dbt-poc.ck74sbgav22w.eu-central-1.redshift.amazonaws.com
+#       user : akym-dev
+#       password : xxx
+#       port: 5439
+#       dbname: dev
+#       schema: "dbt_analytics"  # The schema where dbt will build your table
+#       threads: 4
+
+
+
 dbt_poc:
   target: dev
   outputs:
     dev:
-      type: redshift
-      # host: "{{ env_var('REDSHIFT_HOST') }}"
-      # user: "{{ env_var('REDSHIFT_USER') }}"
-      # password: "{{ env_var('REDSHIFT_PASSWORD') }}"
-      host : dbt-poc.ck74sbgav22w.eu-central-1.redshift.amazonaws.com
-      user : akym-dev
-      password : xxx
-      port: 5439
-      dbname: dev
-      schema: "dbt_analytics"  # The schema where dbt will build your table
-      threads: 4
+      type: snowflake
+      account: "HIEMLZO-BD72310" # Use a hyphen between the Organization and Account
+      user: "HAKYMDEVV"
+      password: "MvW4q9HpPPcybt8"
+      role: "ACCOUNTADMIN"
+      warehouse: "dbt-test"        # Specify your default warehouse
+      database: "dbt-test"      # The DB dbt will manage
+      schema: "public"          # The default schema for your models
+      threads: 4                    # Number of parallel tasks
