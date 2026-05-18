@@ -25,7 +25,7 @@ dbt_poc:
       user: "HAKYMDEVV"
       password: "MvW4q9HpPPcybt8"
       role: "ACCOUNTADMIN"
-      warehouse: "dbt-test"        # Specify your default warehouse
-      database: "dbt-test"      # The DB dbt will manage
-      schema: "public"          # The default schema for your models
+      warehouse: "DBT_TEST1"        # Use underscores to avoid SQL syntax errors
+      database: "DBT_TEST1"         # Hyphens are treated as subtraction operators in SQL
+      schema: "PUBLIC"          # The default schema for your models
       threads: 4                    # Number of parallel tasks
