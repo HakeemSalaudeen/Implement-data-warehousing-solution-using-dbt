@@ -37,7 +37,7 @@ dbt_poc:
   outputs:
     dev:
       type: snowflake
-      account: "HIEMLZO-BD72310" # Use a hyphen between the Organization and Account
+      account: "HIEMLZO-BD72310"  # Use a hyphen between the Organization and Account
       user: "HAKYMDEVV"
       password: "MvW4q9HpPPcybt8"
       role: "ACCOUNTADMIN"
