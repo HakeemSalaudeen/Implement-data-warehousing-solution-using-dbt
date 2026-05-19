@@ -43,7 +43,7 @@ jobs:
         env:
           #REGISTRY: 149219722113.dkr.ecr.eu-central-1.amazonaws.com
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          REPOSITORY: dbt-test
+          REPOSITORY: dbt_test
           IMAGE_TAG: latest
         run: |
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG .
