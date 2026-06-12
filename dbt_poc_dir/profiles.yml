@@ -37,11 +37,11 @@ dbt_poc:
   outputs:
     dev:
       type: snowflake
-      account: "HIEMLZO-BD72310"  # Use a hyphen between the Organization and Account
-      user: "HAKYMDEVV"
-      password: "MvW4q9HpPPcybt8"
-      role: "ACCOUNTADMIN"
-      warehouse: "TRANSFORMING"        # Use underscores to avoid SQL syntax errors
-      database: "ANALYTICS"         # Hyphens are treated as subtraction operators in SQL
-      schema: "PUBLIC"          # The default schema for your models
+      # account: "HIEMLZO-BD72310"  # Use a hyphen between the Organization and Account
+      # user: "HAKYMDEVV"
+      # password: "MvW4q9HpPPcybt8"
+      # role: "ACCOUNTADMIN"
+      # warehouse: "TRANSFORMING"        # Use underscores to avoid SQL syntax errors
+      # database: "ANALYTICS"         # Hyphens are treated as subtraction operators in SQL
+      # schema: "PUBLIC"          # The default schema for your models
       threads: 4  
