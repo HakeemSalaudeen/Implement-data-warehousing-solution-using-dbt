@@ -51,11 +51,11 @@ dbt_poc:
   outputs:
     dev:
       type: snowflake
-      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
-      user: "{{ env_var('SNOWFLAKE_USER') }}"
-      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
-      role: "{{ env_var('SNOWFLAKE_ROLE', 'ACCOUNTADMIN') }}"
-      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE') }}"
-      database: "{{ env_var('SNOWFLAKE_DATABASE') }}"
-      schema: "{{ env_var('SNOWFLAKE_SCHEMA', 'PUBLIC') }}"
+      account: "{{ env_var('account') }}"
+      user: "{{ env_var('user') }}"
+      password: "{{ env_var('password') }}"
+      role: "{{ env_var('role', 'ACCOUNTADMIN') }}"
+      warehouse: "{{ env_var('warehouse') }}"
+      database: "{{ env_var('database') }}"
+      schema: "{{ env_var('schema', 'PUBLIC') }}"
       threads: 4
