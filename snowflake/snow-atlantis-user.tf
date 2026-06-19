@@ -2,6 +2,10 @@ resource "snowflake_user" "git-test" {
   name = "Snowflake_atlantis_git_test1"
 }
 
+resource "snowflake_user" "git-test2" {
+  name = "Snowflake_atlantis_git_test2"
+}
+
 
 resource "snowflake_user" "atlantis" {
   name         = "Snowflake atlantis"
