@@ -4,7 +4,7 @@ resource "snowflake_user" "git-test" {
 
 resource "snowflake_user" "git-test2" {
   name = "Snowflake_atlantis_git_test2"
-}
+} 
 
 
 resource "snowflake_user" "atlantis" {
