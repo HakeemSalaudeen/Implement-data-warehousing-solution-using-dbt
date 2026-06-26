@@ -80,3 +80,9 @@ variable "abdulhakeem_password" {
     error_message = "Password must be at least 12 characters long."
   }
 }
+
+variable "aws_role_arn" {
+  type        = string
+  sensitive   = true
+  description = "aws_role_arn"
+}
