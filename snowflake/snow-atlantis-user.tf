@@ -1,35 +1,32 @@
-resource "snowflake_user" "git-test" {
-  name = "Snowflake_atlantis_git_test1"
-}
+# resource "snowflake_user" "git-test" {
+#   name = "Snowflake_atlantis_git_test1"
+# }
+
+# resource "snowflake_user" "git-test2" {
+#   name = "Snowflake_atlantis_git_test2"
+# } 
 
 
-resource "snowflake_user" "atlantis" {
-  name         = "Snowflake atlantis"
-  login_name   = var.login_name
-  first_name   = var.first_name
-  middle_name  = var.middle_name
-  last_name    = var.last_name
-  comment      = "atlantis of snowflake."
-  password     = var.password
-  disabled     = "false"
-  display_name = "Snowflake atlantis"
-  #email        = var.email
+# resource "snowflake_user" "atlantis" {
+#   name         = "Snowflake atlantis"
+#   login_name   = var.login_name
+#   first_name   = var.first_name
+#   middle_name  = var.middle_name
+#   last_name    = var.last_name
+#   comment      = "atlantis of snowflake."
+#   password     = var.password
+#   disabled     = "false"
+#   display_name = "Snowflake atlantis"
+#email        = var.email
 
 #   default_warehouse              = snowflake_warehouse.example.fully_qualified_name
 #   default_secondary_roles_option = "ALL"
 #   default_role                   = snowflake_role.example.fully_qualified_name
 #   default_namespace              = "some.namespace"
 
-  # mins_to_unlock     = 9
-  # days_to_expiry     = 8
-  # mins_to_bypass_mfa = 10
-
-#   rsa_public_key   = "..."
-#   rsa_public_key_2 = "..."
-
-  must_change_password = "false"
-  disable_mfa          = "false"
-}
+# must_change_password = "false"
+# disable_mfa          = "false"
+#}
 
 # ## atlantis role 
 # resource "snowflake_account_role" "atlantis_role" {

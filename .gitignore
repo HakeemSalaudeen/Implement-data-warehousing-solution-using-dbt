@@ -1,2 +1,5 @@
 .qodo
 /Users/mac/Downloads/projects/dbt-test/.qodo
+snowflake/.terraform
+snowflake/.terraform.lock.hcl
+snowflake/terraform.tfvars
