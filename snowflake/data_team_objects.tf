@@ -47,6 +47,58 @@ resource "snowflake_schema" "gold_schema" {
   comment  = "gold schema for data team"
 }
 
+
+resource "snowflake_table" "lsa_internal_table" {
+  database                    = snowflake_schema.bronze_schema.database
+  schema                      = snowflake_schema.bronze_schema.name
+  name                        = "BRONZE_LAYER_INTERNAL_TABLE"
+  comment                     = "Internal table for LSA project."
+  column {
+    name = "SalesOrderNumber"
+    type = "VARCHAR"
+  }
+
+  column {
+    name = "SalesOrderLineNumber"
+    type = "VARCHAR"
+  }
+
+  column {
+    name = "OrderDate"
+    type = "VARCHAR"
+  }
+
+  column {
+    name = "CustomerName"
+    type = "VARCHAR"
+  }
+
+  column {
+    name = "Email"
+    type = "VARCHAR"
+  }
+
+  column {
+    name = "Item"
+    type = "VARCHAR"
+  }
+
+  column {
+    name = "Quantity"
+    type = "VARCHAR"
+  }
+
+  column {
+    name = "UnitPrice"
+    type = "VARCHAR"
+  }
+
+  column {
+    name = "Tax"
+    type = "VARCHAR"
+  }
+}
+
 # resource "snowflake_schema" "testing_schema" {
 #   name     = "TESTING_SCHEMA"
 #   database = snowflake_database.prod_db.name
