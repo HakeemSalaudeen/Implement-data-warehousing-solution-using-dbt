@@ -49,10 +49,10 @@ resource "snowflake_schema" "gold_schema" {
 
 
 resource "snowflake_table" "lsa_internal_table" {
-  database                    = snowflake_schema.bronze_schema.database
-  schema                      = snowflake_schema.bronze_schema.name
-  name                        = "BRONZE_LAYER_INTERNAL_TABLE"
-  comment                     = "Internal table for LSA project."
+  database = snowflake_schema.bronze_schema.database
+  schema   = snowflake_schema.bronze_schema.name
+  name     = "BRONZE_LAYER_INTERNAL_TABLE"
+  comment  = "Internal table for LSA project."
   column {
     name = "SalesOrderNumber"
     type = "VARCHAR"

@@ -1,8 +1,3 @@
-# variable "email" {
-#   type      = string
-#   sensitive = true
-# }
-
 variable "login_name" {
   type        = string
   sensitive   = true

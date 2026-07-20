@@ -12,8 +12,6 @@ variable "user" { type = string }
 variable "cloud_password" { type = string }
 variable "role" { type = string }
 
-# A simple configuration of the provider with a default authentication.
-# A default value for `authenticator` is `snowflake`, enabling authentication with `user` and `password`.
 provider "snowflake" {
   organization_name = var.organization_name
   account_name      = var.account_name
