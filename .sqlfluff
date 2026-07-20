@@ -1,0 +1,29 @@
+[sqlfluff]
+dialect = snowflake
+templater = jinja
+
+[sqlfluff:templater:jinja]
+project_dir = ./dbt
+profiles_dir = ./dbt
+undefined_variables = ignore
+
+[sqlfluff:rules:capitalisation.keywords]
+capitalisation_policy = upper
+
+[sqlfluff:rules:capitalisation.functions]
+capitalisation_policy = upper
+
+[sqlfluff:rules:capitalisation.identifiers]
+extended_capitalisation_policy = lower
+
+[sqlfluff:rules:layout.long_lines]
+max_line_length = 120
+
+[sqlfluff:layout:type:comma]
+line_position = trailing
+
+[sqlfluff:rules:layout.select_targets]
+line_position = single
+
+[sqlfluff:rules:layout.indent]
+disabled = true

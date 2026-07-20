@@ -1,5 +1,15 @@
 .qodo
 /Users/mac/Downloads/projects/dbt-test/.qodo
-snowflake/.terraform
+terraform-infra/snowflake/terraform/.terraform
+terraform-infra/snowflake/terraform/.terraform.lock.hcl
 snowflake/.terraform.lock.hcl
 snowflake/terraform.tfvars
+daily_extract_20260518_220014.json
+2026-05-18_data.json
+dbt/profiles copy.yml
+dbt/.env
+dbt/dbt_project copy.yml
+terraform-infra/snowflake/terraform/snow-atlantis-user.tf
+terraform-infra/snowflake/terraform/snow-wh.tf
+terraform-infra/snowflake/terraform/terraform copy.tfvars
+.venv

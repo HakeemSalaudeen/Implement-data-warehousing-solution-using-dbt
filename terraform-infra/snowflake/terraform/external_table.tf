@@ -1,8 +1,9 @@
 resource "snowflake_storage_integration_aws" "lsa_storage_integration" {
-  name                      = "LSA_AWS_S3_STORAGE_INTEGRATION"
-  enabled                   = true
-  storage_provider          = "S3"
-  storage_allowed_locations = ["s3://snowflake-stage-test-bucket-2026/sales/"]
+  name             = "LSA_AWS_S3_STORAGE_INTEGRATION"
+  enabled          = true
+  storage_provider = "S3"
+  storage_allowed_locations = ["s3://snowflake-stage-test-bucket-2026/sales/",
+  "s3://snowflake-stage-test-bucket-2026/lone-star-assurance/"]
   # storage_blocked_locations = ["s3://mybucket1/blocked-location/", "s3://mybucket1/blocked-location2/"]
   # use_privatelink_endpoint  = "true"
   comment = "Storage integration for LSA project to connect to S3 buckets"
@@ -42,11 +43,10 @@ resource "snowflake_file_format" "lsa_file_format" {
 
 
 resource "snowflake_external_table" "lsa_external_table" {
-  database     = snowflake_database.prod_db.name
-  schema       = snowflake_schema.bronze_schema.name
-  name         = "BRONZE_LAYER_EXTERNAL_TABLE"
-  location     = "@${snowflake_stage_external_s3.lsa_external_stage.fully_qualified_name}"
-  #file_format  = snowflake_file_format.lsa_file_format.fully_qualified_name
+  database = snowflake_database.prod_db.name
+  schema   = snowflake_schema.bronze_schema.name
+  name     = "BRONZE_LAYER_EXTERNAL_TABLE"
+  location = "@${snowflake_stage_external_s3.lsa_external_stage.fully_qualified_name}"
   #file_format  = (FORMAT_NAME = "PROD_DB.BRONZE_LAYER_SCHEMA.LSA_FILE_FORMAT")
   file_format  = "TYPE = CSV, SKIP_HEADER = 0, FIELD_DELIMITER = ',', NULL_IF = ('NULL', 'null')"
   auto_refresh = true
@@ -106,4 +106,33 @@ resource "snowflake_external_table" "lsa_external_table" {
     type = "VARCHAR"
     as   = "value:c9::VARCHAR"
   }
+}
+
+
+
+resource "snowflake_stage_external_s3" "lsa_daily_external_stage" {
+  name                = "LSA_DAILY_EXTERNAL_STAGE"
+  database            = snowflake_database.prod_db.name
+  schema              = snowflake_schema.bronze_schema.name
+  url                 = "s3://snowflake-stage-test-bucket-2026/lone-star-assurance/"
+  storage_integration = snowflake_storage_integration_aws.lsa_storage_integration.name
+
+  directory {
+    enable            = true
+    refresh_on_create = true
+    auto_refresh      = false
+  }
+
+  comment = "LSA daily external stage for S3 bucket."
+}
+
+
+resource "snowflake_file_format" "lsa_daily_file_format" {
+  name              = "LSA_DAILY_FILE_FORMAT"
+  database          = snowflake_database.prod_db.name
+  schema            = snowflake_schema.bronze_schema.name
+  format_type       = "JSON"
+  comment           = "File format for LSA daily external table."
+  compression       = "AUTO"
+  strip_outer_array = true
 }
