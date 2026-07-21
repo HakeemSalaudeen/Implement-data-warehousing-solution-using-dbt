@@ -10,14 +10,19 @@ resource "aws_ecs_task_definition" "snowflake_poc_task" {
   {
     "name": "snowflake-poc-container",
     "environment": [
-    { "name": "account", "value": "HIEMLZO-BD72310" },
-    { "name": "user", "value": "HAKYMDEVV" },
-    { "name": "password", "value": "MvW4q9HpPPcybt8" },
-    { "name": "database", "value": "RAW" },
-    { "name": "schema", "value": "PUBLIC" },
-    { "name": "warehouse", "value": "COMPUTE_WH" },
-    { "name": "role", "value": "ACCOUNTADMIN" }
-],
+                    { "name": "account", "value": "HIEMLZO-BD72310" },
+                    { "name": "user", "value": "HAKYMDEVV" },
+                    { "name": "database", "value": "RAW" },
+                    { "name": "schema", "value": "PUBLIC" },
+                    { "name": "warehouse", "value": "COMPUTE_WH" },
+                    { "name": "role", "value": "ACCOUNTADMIN" }
+                    ],
+              secrets = [
+        {
+          name      = "ELITE_KINGS_COUNTY_SNOWFLAKE_PASSWORD"
+          valueFrom = data.aws_ssm_parameter.snowflake-poc-container.arn
+        }
+      ]
     "image": "${data.aws_ecr_image.snowflake_image.image_uri}",
     "logConfiguration": {
         "logDriver": "awslogs",
