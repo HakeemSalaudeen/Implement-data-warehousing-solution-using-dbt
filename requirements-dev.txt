@@ -1,4 +1,6 @@
 sqlfluff
+apache-airflow-providers-snowflake==6.14.0
+apache-airflow-providers-amazon>=7.0.0
 
 
 
